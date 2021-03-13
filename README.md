@@ -1,0 +1,3 @@
+# Fontes da MasterClass Boas Práticas para Construção de APIs...
+Exemplos dos testes automatizados 
+Exemplos da API
