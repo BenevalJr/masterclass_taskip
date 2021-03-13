@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{CEA1DCC6-79D8-4076-B157-8FFBE3DBA665}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DemoAPI.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test_DemoAPI.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DemoAPI">
+        <MSBuild Projects="DemoAPI.dproj"/>
+    </Target>
+    <Target Name="DemoAPI:Clean">
+        <MSBuild Projects="DemoAPI.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DemoAPI:Make">
+        <MSBuild Projects="DemoAPI.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Test_DemoAPI">
+        <MSBuild Projects="Test_DemoAPI.dproj"/>
+    </Target>
+    <Target Name="Test_DemoAPI:Clean">
+        <MSBuild Projects="Test_DemoAPI.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Test_DemoAPI:Make">
+        <MSBuild Projects="Test_DemoAPI.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DemoAPI;Test_DemoAPI"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DemoAPI:Clean;Test_DemoAPI:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DemoAPI:Make;Test_DemoAPI:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

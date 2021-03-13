@@ -1,0 +1,8 @@
+dcu
+bin
+__recovery
+__history
+*.tvsconfig
+*.res
+*.local
+*.identcache
